@@ -17,4 +17,5 @@ public class Order {
     private Long price;
     private Long quantity;
     private String country;
+    private String demo;
 }
