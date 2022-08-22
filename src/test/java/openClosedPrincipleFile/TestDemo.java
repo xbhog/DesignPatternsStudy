@@ -4,6 +4,8 @@ import SOLID5大原则.DependencyInversionPrinciple.BudgetReport;
 import SOLID5大原则.DependencyInversionPrinciple.MySQLDatabase;
 import SOLID5大原则.openClosedPrincipleFile.ICalculationArea;
 import SOLID5大原则.openClosedPrincipleFile.impl.CalculationAreaExt;
+import combatCode.工厂模式.design.ICommodity;
+import combatCode.工厂模式.design.StoreFactory;
 import combatCode.模板模式.design.NetMall;
 import combatCode.模板模式.design.group.JDNetMall;
 import combatCode.策略模式.design.Context;
@@ -25,6 +27,7 @@ import java.util.Map;
  */
 @Slf4j
 public class TestDemo {
+
     @Test
     public void test(){
         ICalculationArea calculationAreaExt = new CalculationAreaExt();
@@ -33,7 +36,7 @@ public class TestDemo {
     }
 
     /**
-     * 测试模板模式
+     * 模板模式
      */
     @Test
     public void demo(){
@@ -70,5 +73,16 @@ public class TestDemo {
         Context<Double> context = new Context<>(new NYGCouponDiscount());
         BigDecimal discountAmount = context.discountAmount(80D, new BigDecimal(100));
         log.info("测试结果，N元购优惠后的金额：{}",discountAmount);
+    }
+
+    /**
+     * 工厂模式
+     * @throws Exception
+     */
+    @Test
+    public void  test_commodity() throws Exception{
+        StoreFactory storeFactory = new StoreFactory();
+        ICommodity commodityService = storeFactory.getCommodityService(3);
+        commodityService.sendCommodity("10001","AQY1xjkUodl8LO975GdfrYUio",null,null);
     }
 }

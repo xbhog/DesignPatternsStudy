@@ -1,6 +1,5 @@
 package BaseDemo;
 
-import javafx.scene.control.cell.PropertyValueFactory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
