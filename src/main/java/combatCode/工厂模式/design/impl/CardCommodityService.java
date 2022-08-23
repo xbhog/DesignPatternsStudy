@@ -10,11 +10,12 @@ import java.util.Map;
 
 /**
  * @author xbhog
+ * 第三方兑换卡
  */
 public class CardCommodityService implements ICommodity {
-    private Logger logger = LoggerFactory.getLogger(CardCommodityService.class);
+    private final Logger logger = LoggerFactory.getLogger(CardCommodityService.class);
     //模拟注入
-    private IQiYiCardService iQiYiCardService = new IQiYiCardService();
+    private final IQiYiCardService iQiYiCardService = new IQiYiCardService();
 
     @Override
     public void sendCommodity(String uId, String commodityId, String bizId,
