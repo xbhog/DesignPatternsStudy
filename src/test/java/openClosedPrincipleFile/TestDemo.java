@@ -76,7 +76,7 @@ public class TestDemo {
     }
 
     /**
-     * 工厂模式
+     * 工厂模式-第三方兑换卡
      * @throws Exception
      */
     @Test
@@ -84,5 +84,11 @@ public class TestDemo {
         StoreFactory storeFactory = new StoreFactory();
         ICommodity commodityService = storeFactory.getCommodityService(3);
         commodityService.sendCommodity("10001","AQY1xjkUodl8LO975GdfrYUio",null,null);
+    }
+    @Test
+    public void Test_coupon() throws Exception {
+        StoreFactory storeFactory = new StoreFactory();
+        ICommodity commodityService = storeFactory.getCommodityService(1);
+        commodityService.sendCommodity("10001", "EGM1023938910232121323432", "791098764902132", null);
     }
 }
