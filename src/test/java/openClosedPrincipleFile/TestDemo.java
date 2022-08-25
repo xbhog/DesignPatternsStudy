@@ -91,4 +91,14 @@ public class TestDemo {
         ICommodity commodityService = storeFactory.getCommodityService(1);
         commodityService.sendCommodity("10001", "EGM1023938910232121323432", "791098764902132", null);
     }
+    @Test
+    public void Test_Goods() throws Exception {
+        StoreFactory storeFactory = new StoreFactory();
+        ICommodity commodityService = storeFactory.getCommodityService(2);
+        HashMap<String, String> extMap = new HashMap<>();
+        extMap.put("consigneeUserName", "谢飞机");
+        extMap.put("consigneeUserPhone", "15200292123");
+        extMap.put("consigneeUserAddress", "吉林省.长春市.双阳区.XX街道.檀溪苑小区.#18-2109");
+        commodityService.sendCommodity("10001","9820198721311","1023000020112221113",extMap);
+    }
 }
