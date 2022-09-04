@@ -5,7 +5,7 @@ import combatCode.抽象工厂模式.design.factory.ICacheAdapter;
 import combatCode.抽象工厂模式.design.factory.JDKProxy;
 import combatCode.抽象工厂模式.design.factory.impl.EGMCacheAdapter;
 import combatCode.抽象工厂模式.design.impl.CacheServiceImpl;
-import combatCode.抽象工厂模式.design.store.StoreFactory2;
+import combatCode.抽象工厂模式.design.cache.CacheFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class TestDemo2 {
     }
     @Test
     public void test_CacheService2() throws Exception{
-        StoreFactory2 factory2 = new StoreFactory2();
+        CacheFactory factory2 = new CacheFactory();
         ICacheAdapter cacheMode = factory2.getCacheMode(1);
         cacheMode.set("user_name_02","xbhog测试2");
         String values02 = cacheMode.get("user_name_02");
