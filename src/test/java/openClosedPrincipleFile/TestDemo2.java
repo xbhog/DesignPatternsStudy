@@ -1,22 +1,27 @@
 package openClosedPrincipleFile;
 
+import com.alibaba.fastjson.JSON;
 import combatCode.抽象工厂模式.design.CacheService;
 import combatCode.抽象工厂模式.design.factory.ICacheAdapter;
 import combatCode.抽象工厂模式.design.factory.JDKProxy;
 import combatCode.抽象工厂模式.design.factory.impl.EGMCacheAdapter;
 import combatCode.抽象工厂模式.design.impl.CacheServiceImpl;
 import combatCode.抽象工厂模式.design.cache.CacheFactory;
+import combatCode.状态模式.design.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
  * @author xbhog
- * @describe:抽象工厂模式
+ * @describe:抽象工厂模式，状态模式
  * @date 2022/9/3
  */
 @Slf4j
 public class TestDemo2 {
-
+    /**
+     * 抽象工厂测试
+     * @throws Exception
+     */
     @Test
     public void test_CacheService() throws Exception {
         CacheService proxy_EGM = JDKProxy.getProxy(CacheServiceImpl.class, new EGMCacheAdapter());
@@ -32,5 +37,31 @@ public class TestDemo2 {
         String values02 = cacheMode.get("user_name_02");
         System.out.println("测试结果2："+values02);
 
+    }
+    /**
+     * 状态模式测试
+     */
+    @Test
+    public void test_Editing2Arraignment(){
+        String activityId = "100001";
+        ActivityService.init(activityId, Status.Editing);
+
+        StateHandler stateHandler = new StateHandler();
+        Result result = stateHandler.arraignment(activityId, Status.Editing);
+
+        log.info("测试结果(编辑中To提审活动)：{}", JSON.toJSONString(result));
+        log.info("活动信息：{} 状态：{}", JSON.toJSONString(ActivityService.queryActivityInfo(activityId)),
+                JSON.toJSONString(ActivityService.queryActivityInfo(activityId).getStatus()));
+    }
+
+    @Test
+    public void test_Editing20Open(){
+        String activityId = "10001";
+        ActivityService.init(activityId,Status.Editing);
+        StateHandler handler = new StateHandler();
+        Result result = handler.open(activityId, Status.Editing);
+        log.info("测试结果(编辑中To提审活动)：{}", JSON.toJSONString(result));
+        log.info("活动信息：{} 状态：{}", JSON.toJSONString(ActivityService.queryActivityInfo(activityId)),
+                JSON.toJSONString(ActivityService.queryActivityInfo(activityId).getStatus()));
     }
 }
