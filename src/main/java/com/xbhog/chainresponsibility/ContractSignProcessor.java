@@ -2,6 +2,7 @@ package com.xbhog.chainresponsibility;
 
 
 
+import com.xbhog.chainresponsibility.Config.SignConfig;
 import com.xbhog.chainresponsibility.inter.Interceptor;
 import com.xbhog.chainresponsibility.inter.Processor;
 import com.xbhog.chainresponsibility.pojo.ContractRequest;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -20,9 +22,9 @@ import java.util.List;
  */
 @Slf4j
 @Component
-public class ContractSignProcessor <T extends ContractRequest> implements Processor<T, ContractResponse> {
+public class ContractSignProcessor <T extends ContractRequest> extends SignConfig implements Processor<T, ContractResponse> {
 
-    @Resource(name = "contractSignCompactInitImpl")
+   /* @Resource(name = "contractSignCompactInitImpl")
     private Interceptor<T,ContractResponse> contractCompactInitImpl;
 
     @Resource(name = "contractSignGenerateImpl")
@@ -41,9 +43,7 @@ public class ContractSignProcessor <T extends ContractRequest> implements Proces
     private Interceptor<T,ContractResponse> contractSignSerialImpl;
 
     @Resource(name = "contractSignTradeImpl")
-    private Interceptor<T,ContractResponse> ContractSignTradeImpl;
-
-
+    private Interceptor<T,ContractResponse> ContractSignTradeImpl;*/
     public ContractSignProcessor() {
     }
 
@@ -51,13 +51,16 @@ public class ContractSignProcessor <T extends ContractRequest> implements Proces
     public ContractResponse process(T paramter) {
         //获取所有的监听器
         List<Interceptor<T,ContractResponse>> interceptorList = new ArrayList<>();
-        interceptorList.add(contractCompactInitImpl);
+        /*interceptorList.add(contractCompactInitImpl);
         interceptorList.add(contractGenerateImpl);
         interceptorList.add(contractSignMockImpl);
         interceptorList.add(contractSignMqImpl);
         interceptorList.add(contractSignSaveUploadImpl);
         interceptorList.add(contractSignSerialImpl);
-        interceptorList.add(ContractSignTradeImpl);
+        interceptorList.add(ContractSignTradeImpl);*/
+        for(Integer key : CONTRACT_SIGN_MAP.keySet()){
+            interceptorList.add(CONTRACT_SIGN_MAP.get(key));
+        }
         //开始签章
         log.info("签章开始");
         return new ContractCall(paramter,interceptorList).exectue();

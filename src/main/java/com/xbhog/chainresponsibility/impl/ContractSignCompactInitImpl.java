@@ -3,6 +3,8 @@ package com.xbhog.chainresponsibility.impl;
 
 
 
+import com.xbhog.chainresponsibility.Enum.ContractSignEnum;
+import com.xbhog.chainresponsibility.annotations.ContractSign;
 import com.xbhog.chainresponsibility.inter.Chain;
 import com.xbhog.chainresponsibility.inter.Interceptor;
 import com.xbhog.chainresponsibility.pojo.ContractRequest;
@@ -18,6 +20,7 @@ import java.util.Objects;
  * @date 2023/7/12
  */
 @Slf4j
+@ContractSign(SIGN_CHANNEL = ContractSignEnum.SignChannel.SIGN_INIT)
 @Component
 public class ContractSignCompactInitImpl<T extends ContractRequest> implements Interceptor<T, ContractResponse> {
     public ContractSignCompactInitImpl() {

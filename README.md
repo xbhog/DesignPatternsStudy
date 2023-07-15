@@ -7,4 +7,4 @@
 4. [抽象工厂模式](https://github.com/xbhog/DesignPatternsStudy/tree/master/src/main/java/combatCode/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/design)(模拟缓存服务,创建代理类，通过控制不同的入参对象，控制缓存的使用)
 ## 功能实现：
 1. [责任链模式+组合实现合同签章功能](https://github.com/xbhog/DesignPatternsStudy/tree/master/src/main/java/combatCode/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/design)
-   ![责任链模式+组合实现签章](https://xbhog-img.oss-cn-hangzhou.aliyuncs.com/2022/20230715144241.png)
+   ![责任链模式+组合实现签章](https://xbhog-img.oss-cn-hangzhou.aliyuncs.com/2022/20230715213403.png)

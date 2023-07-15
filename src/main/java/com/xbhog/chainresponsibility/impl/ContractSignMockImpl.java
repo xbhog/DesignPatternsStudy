@@ -1,6 +1,8 @@
 package com.xbhog.chainresponsibility.impl;
 
 
+import com.xbhog.chainresponsibility.Enum.ContractSignEnum;
+import com.xbhog.chainresponsibility.annotations.ContractSign;
 import com.xbhog.chainresponsibility.inter.Chain;
 import com.xbhog.chainresponsibility.inter.Interceptor;
 import com.xbhog.chainresponsibility.pojo.ContractRequest;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Component;
  * @date 2023/7/15
  */
 @Slf4j
+@ContractSign(SIGN_CHANNEL = ContractSignEnum.SignChannel.SIGN_MOCK)
 @Component
 public class ContractSignMockImpl<T extends ContractRequest> implements Interceptor<T, ContractResponse> {
     @Value("signMock")
