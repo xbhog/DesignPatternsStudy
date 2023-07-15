@@ -1,11 +1,11 @@
 package openClosedPrincipleFile;
 
-import combatCode.抽象工厂模式.design.CacheService;
-import combatCode.抽象工厂模式.design.factory.ICacheAdapter;
-import combatCode.抽象工厂模式.design.factory.JDKProxy;
-import combatCode.抽象工厂模式.design.factory.impl.EGMCacheAdapter;
-import combatCode.抽象工厂模式.design.impl.CacheServiceImpl;
-import combatCode.抽象工厂模式.design.cache.CacheFactory;
+import com.xbhog.combatCode.抽象工厂模式.design.CacheService;
+import com.xbhog.combatCode.抽象工厂模式.design.factory.ICacheAdapter;
+import com.xbhog.combatCode.抽象工厂模式.design.factory.JDKProxy;
+import com.xbhog.combatCode.抽象工厂模式.design.factory.impl.EGMCacheAdapter;
+import com.xbhog.combatCode.抽象工厂模式.design.impl.CacheServiceImpl;
+import com.xbhog.combatCode.抽象工厂模式.design.cache.CacheFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 

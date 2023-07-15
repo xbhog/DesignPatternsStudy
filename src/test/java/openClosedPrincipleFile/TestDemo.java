@@ -1,18 +1,16 @@
 package openClosedPrincipleFile;
 
-import SOLID5大原则.DependencyInversionPrinciple.BudgetReport;
-import SOLID5大原则.DependencyInversionPrinciple.MySQLDatabase;
-import SOLID5大原则.openClosedPrincipleFile.ICalculationArea;
-import SOLID5大原则.openClosedPrincipleFile.impl.CalculationAreaExt;
-import combatCode.工厂模式.design.ICommodity;
-import combatCode.工厂模式.design.StoreFactory;
-import combatCode.模板模式.design.NetMall;
-import combatCode.模板模式.design.group.JDNetMall;
-import combatCode.策略模式.design.Context;
-import combatCode.策略模式.design.impl.MJCouponDiscount;
-import combatCode.策略模式.design.impl.NYGCouponDiscount;
-import combatCode.策略模式.design.impl.ZKCouponDiscount;
-import combatCode.策略模式.design.impl.ZjCouponDiscount;
+import com.xbhog.SOLID5大原则.openClosedPrincipleFile.ICalculationArea;
+import com.xbhog.SOLID5大原则.openClosedPrincipleFile.impl.CalculationAreaExt;
+import com.xbhog.combatCode.工厂模式.design.ICommodity;
+import com.xbhog.combatCode.工厂模式.design.StoreFactory;
+import com.xbhog.combatCode.模板模式.design.NetMall;
+import com.xbhog.combatCode.模板模式.design.group.JDNetMall;
+import com.xbhog.combatCode.策略模式.design.Context;
+import com.xbhog.combatCode.策略模式.design.impl.MJCouponDiscount;
+import com.xbhog.combatCode.策略模式.design.impl.NYGCouponDiscount;
+import com.xbhog.combatCode.策略模式.design.impl.ZKCouponDiscount;
+import com.xbhog.combatCode.策略模式.design.impl.ZjCouponDiscount;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
