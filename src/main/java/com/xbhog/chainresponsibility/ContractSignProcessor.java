@@ -58,6 +58,7 @@ public class ContractSignProcessor <T extends ContractRequest> extends SignConfi
         interceptorList.add(contractSignSaveUploadImpl);
         interceptorList.add(contractSignSerialImpl);
         interceptorList.add(ContractSignTradeImpl);*/
+        //获取排序后的结果，保证责任链的顺序，hashmap中key如果是数字的话，通过hashcode编码后后是有序的
         for(Integer key : CONTRACT_SIGN_MAP.keySet()){
             interceptorList.add(CONTRACT_SIGN_MAP.get(key));
         }

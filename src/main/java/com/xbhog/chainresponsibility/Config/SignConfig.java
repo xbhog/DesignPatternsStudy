@@ -22,13 +22,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class SignConfig {
     @Resource
-    private List<Interceptor> contractSignList;
+    protected List<Interceptor> contractSignList;
 
     protected static final Map<Integer,Interceptor> CONTRACT_SIGN_MAP = new ConcurrentHashMap<>();
 
     @PostConstruct
     public void init(){
        contractSignList.forEach(interceptor -> {
+           //查找这个接口的实现类上有没有ContractSign注解
            ContractSign sign = AnnotationUtils.findAnnotation(interceptor.getClass(), ContractSign.class);
            if(!Objects.isNull(sign)){
                CONTRACT_SIGN_MAP.put(sign.SIGN_CHANNEL().getCode(),interceptor);
