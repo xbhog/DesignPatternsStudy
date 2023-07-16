@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @author xbhog
- * @describe: 合同数据请求及节点的封装
+ * @describe:  合同数据请求、节点的实例化及方法执行
  * @date 2023/7/11
  */
 public class ContractCall<T extends ContractRequest> implements Call<T, ContractResponse> {
